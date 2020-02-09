@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <title>My Chart.js Chart</title>
+  </head>
+  <body>
+    <div class="container">
+      <canvas id="myChart"></canvas>
+
+      <script>
+        let myChart = document.getElementById("myChart").getContext("2d");
+
+        //Global Options
+        Chart.defaults.global.defaultFontFamily = "arial";
+        Chart.defaults.global.defaultFontSize = 12;
+        Chart.defaults.global.defaultFontColor = "#888";
+
+        let massPopChart = new Chart(myChart, {
+          type: "bar", //bar. horizontalBar, pie, line, doughnut, radar, polarArea
+          data: {
+            labels: [
+              "Metropolitana",
+              "Valparaíso",
+              "Biobío",
+              "Maule",
+              "La Araucanía"
+            ],
+            datasets: [
+              {
+                label: "6 Regiones más pobladas de Chile",
+                data: [7112808, 1815902, 1556805, 1044950, 957224],
+                backgroundColor: ["green", "red", "pink", "blue", "purple"],
+                borderWidth: 1,
+                borderColor: "#777",
+                hoverBorderWidth: 3,
+                hoverBorderColor: "#000"
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Gráficos de barras hecho con Chart.js",
+              fontSize: 25
+            },
+            legend: {
+              position: "right",
+              labels: {
+                fontColor: "#000"
+              }
+            },
+            layout: {
+              padding: {
+                left: 50,
+                right: 50
+              }
+            }
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>
